@@ -30,34 +30,58 @@
 	  				<div class="inside-screen">
 	  					<h1 class="title">Car race</h1>
 	  					<!--Formulario-->
-	  					<form id="startForm" class="form">
-	  						<div class="input-container">
-	  							<label class="input-label" for="number">Número de jugadores</label>
-		  						<select name="number" id="number" class="select" required>
-					              	<option selected disabled value="0">Escoja un número</option>
-					              	<option value="1">Un jugador</option>
-							        <option value="2">Dos jugadores</option>
-							        <option value="3">Tres jugadores</option>
-							        <option value="4">Cuatro jugadores</option>
-							        <option value="5">Cinco jugadores</option>
-							        <option value="6">Seis jugadores</option>
-							        <option value="7">Siete jugadores</option>
-							        <option value="8">Ocho jugadores</option>
-							        <option value="9">Nueve jugadores</option>
-					            </select>
-	  						</div>
-	  						<div class="input-container">
-					            <label class="input-label" for="winningScore">Puntuación de victoria</label>
-					            <input class="input" id="winningScore" name="winningScore" type="number" required />
-					        </div>
-					        <button class="button" id="startButton" type="submit">Iniciar</button>
-					        <button class="button" id="resetButton" type="reset" hidden>Reset</button>
-	  					</form>
+	  					<section id="form">
+		  					<form id="startForm" class="form">
+		  						<div class="input-container">
+		  							<label class="input-label" for="number">Número de jugadores</label>
+			  						<select name="number" id="number" class="select" required>
+						              	<option selected disabled value="0">Escoja un número</option>
+						              	<option value="1">Un jugador</option>
+								        <option value="2">Dos jugadores</option>
+								        <option value="3">Tres jugadores</option>
+								        <option value="4">Cuatro jugadores</option>
+								        <option value="5">Cinco jugadores</option>
+								        <option value="6">Seis jugadores</option>
+								        <option value="7">Siete jugadores</option>
+								        <option value="8">Ocho jugadores</option>
+								        <option value="9">Nueve jugadores</option>
+						            </select>
+		  						</div>
+		  						<div class="input-container">
+						            <label class="input-label" for="winningScore">Puntuación de victoria</label>
+						            <input class="input" id="winningScore" name="winningScore" type="number" required />
+						        </div>
+						        <button class="button" id="startButton" type="submit">Iniciar</button>
+						        <button class="button" id="resetButton" type="reset" hidden>Reset</button>
+		  					</form>
+	  					</section>
 	  					<!--Carrera-->
+	  					<section id="race" hidden>
+	  						<ul id="numberOfPlayers">
+	  						
+	  						</ul>
+	  						<div>
+	  							
+	  						</div>
+	  					</section>
 	  					<!--Tablero-->
+	  					<section id="scores" hidden>
+	  						<table id="scoresTable">
+	  							<thead>
+	  								<tr>
+	  									<th>Jugador</th>
+	  									<th>Posición</th>
+	  								</tr>
+	  							</thead>
+	  							<tbody>
+	  								
+	  							</tbody>
+	  						</table>
+	  					</section>
 	  				</div>
 	  			</div>
 	  		</div>
 	  	</main>
 	</body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" defer></script>
 </html>
