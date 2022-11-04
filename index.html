@@ -7,7 +7,10 @@
 	    <meta name="description" content="Un juego de coches">
 	    <meta name="keywords" content="car game, gameboy, videogame, retro game"/>
 	    <link rel="stylesheet" type="text/css" href="./styles.css">
-	    <title>GameCar, un juego de coches</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+	    <title>Car race, un juego de coches</title>
 	 </head>
 	 <body>
 	  	<main class="machine">
@@ -25,7 +28,33 @@
 	  					<p class="battery">BATTERY</p>
 	  				</div>
 	  				<div class="inside-screen">
-	  				
+	  					<h1 class="title">Car race</h1>
+	  					<!--Formulario-->
+	  					<form id="startForm" class="form">
+	  						<div class="input-container">
+	  							<label class="input-label" for="number">Número de jugadores</label>
+		  						<select name="number" id="number" class="select" required>
+					              	<option selected disabled value="0">Escoja un número</option>
+					              	<option value="1">Un jugador</option>
+							        <option value="2">Dos jugadores</option>
+							        <option value="3">Tres jugadores</option>
+							        <option value="4">Cuatro jugadores</option>
+							        <option value="5">Cinco jugadores</option>
+							        <option value="6">Seis jugadores</option>
+							        <option value="7">Siete jugadores</option>
+							        <option value="8">Ocho jugadores</option>
+							        <option value="9">Nueve jugadores</option>
+					            </select>
+	  						</div>
+	  						<div class="input-container">
+					            <label class="input-label" for="winningScore">Puntuación de victoria</label>
+					            <input class="input" id="winningScore" name="winningScore" type="number" required />
+					        </div>
+					        <button class="button" id="startButton" type="submit">Iniciar</button>
+					        <button class="button" id="resetButton" type="reset" hidden>Reset</button>
+	  					</form>
+	  					<!--Carrera-->
+	  					<!--Tablero-->
 	  				</div>
 	  			</div>
 	  		</div>
