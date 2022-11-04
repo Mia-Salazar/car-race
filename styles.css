@@ -90,6 +90,8 @@ body {
     grid-template-columns: 100px 1fr 100px;
     grid-template-rows: 1fr 50px;
     align-items: center;
+    font-family: 'Press Start 2P', cursive;
+    color: #364007;
 }
 
 .battery-container {
@@ -110,6 +112,56 @@ body {
 	height: 10px;
 	border-radius: 50%;
 	background-color: #c47b7b;
+}
+
+.title {
+	text-align: center;
+    font-size: 24px;
+}
+
+/*Formulario*/
+.form {
+	max-width: 355px;
+	margin: 35px auto 0 auto;
+}
+.input-container {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 24px;
+}
+
+.input-label {
+	margin-bottom: 16px;
+}
+
+.select {
+	height: 32px;
+}
+
+.input {
+	padding: 8px 0;
+}
+
+.input, .select {
+	background: transparent;
+	color: #364007;
+	border:  2px solid #364007;
+	font-family: 'Press Start 2P', cursive;
+}
+
+.button {
+	padding: 10px 0;
+	color: #a69a55;
+	border:  2px solid #364007;
+	font-family: 'Press Start 2P', cursive;
+	background-color: #364007;
+	cursor: pointer;
+}
+
+.button:hover {
+	background-color: transparent;
+	color: #364007;
+	border:  2px solid #364007;
 }
 
 /*Responsive*/
