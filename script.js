@@ -6,6 +6,7 @@ const formInputs = $(".input-container");
 const numberOfPlayers = $("#numberOfPlayers")[0];
 const scoreFinal = $("#winningScore"); 
 const raceLines = $("#raceLines")[0];
+const raceSection = $("#raceLines")[0];
 let toggleToStart = true;
 
 //Añadir event listeners
@@ -21,6 +22,7 @@ form.on("reset", function (e) {
 
 //Inicio de la carrera
 function raceStart() {
+	console.log(1)
 	createRace();
 	toggleForm();
 }
@@ -36,23 +38,27 @@ const toggleForm = () => {
 	if(toggleToStart) {
 		startButton.hide();
 		resetButton.show();
+		raceSection.show();
 		formInputs.hide();
 	} else {
+		//reset array y li de líneas
 		resetButton.hide();
 		startButton.show();
 		formInputs.show();
+		raceSection.hide();
 	}
 	toggleToStart = !toggleToStart;
 }
 
 //Crear líneas de competición
 const createRace = () => {
-	console.log(raceLines)
-	for (let i = 1; i === Number(numberOfPlayers.value); i++){
+	console.log(2, Number(numberOfPlayers.value))
+	for (let i = 1; i <= Number(numberOfPlayers.value); i++){
+		console.log('holi', i)
 		let li = document.createElement("li");
 		let img = document.createElement("img");
 
-		img.alt= `coche número ${i}`;
+		img.alt=`coche número ${i}`;
 		img.src=`./img/car${i}.png`;
 
 		li.appendChild(img);
