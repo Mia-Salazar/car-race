@@ -28,14 +28,14 @@
 	  					<p class="battery">BATTERY</p>
 	  				</div>
 	  				<div class="inside-screen">
-	  					<h1 class="title">Car race</h1>
 	  					<!--Formulario-->
-	  					<section id="form">
-		  					<form id="startForm" class="form">
+	  					<section id="form-container" class="form-container">
+		  					<form id="form" class="form">
+		  						<h1 class="title">Car race</h1>
 		  						<div class="input-container">
-		  							<label class="input-label" for="number">Número de jugadores</label>
-			  						<select name="number" id="number" class="select" required>
-						              	<option selected disabled value="0">Escoja un número</option>
+		  							<label class="input-label" for="numberOfPlayers">Número de jugadores</label>
+			  						<select name="numberOfPlayers" id="numberOfPlayers" class="select" required>
+						              	<option value="" disabled selected>Escoja un número</option>
 						              	<option value="1">Un jugador</option>
 								        <option value="2">Dos jugadores</option>
 								        <option value="3">Tres jugadores</option>
@@ -52,12 +52,12 @@
 						            <input class="input" id="winningScore" name="winningScore" type="number" required />
 						        </div>
 						        <button class="button" id="startButton" type="submit">Iniciar</button>
-						        <button class="button" id="resetButton" type="reset" hidden>Reset</button>
+						        <button class="button reset" id="resetButton" type="reset" hidden>Reset</button>
 		  					</form>
 	  					</section>
 	  					<!--Carrera-->
 	  					<section id="race" hidden>
-	  						<ul id="numberOfPlayers">
+	  						<ul id="raceLines">
 	  						
 	  						</ul>
 	  						<div>
@@ -84,4 +84,5 @@
 	  	</main>
 	</body>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js" defer></script>
+	<script src="./script.js" defer></script>
 </html>
