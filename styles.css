@@ -169,10 +169,17 @@ body {
 	border:  2px solid #364007;
 }
 
-.reset {
+.reset, .toggle {
 	position: absolute;
-    top: -7px;
-    right: 19px;
+    top: -7px;	
+}
+
+.reset {
+    right: 20px;
+}
+
+.toggle {
+    left: 20px;
 }
 
 /*Líneas de carrera*/
@@ -187,10 +194,17 @@ body {
 }
 
 .race-container {
-	height: calc(100% - 68px);
+	height: 100%;
 	display: grid;
     grid-template-columns: 1fr 35px;
+}
+
+.scores-section, .race-container {
 	padding: 0 20px;
+}
+
+.race-section {
+	height: calc(100% - 68px);
 }
 
 .race-list li {
@@ -210,6 +224,20 @@ body {
 	margin-bottom: 20px;
 	background-size: contain;
 	background-image: url("./img/finish-line.jpg");
+}
+
+/*Tabla*/
+thead {
+	background-color: #364007;
+    color: #a69a55;
+}
+
+th {
+	padding: 5px 30px;
+}
+
+td {
+	padding: 10px 5px;
 }
 
 /*Responsive*/
