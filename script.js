@@ -27,7 +27,7 @@ form.on("reset", function (e) {
 function raceStart() {
 	toggleForm();
 	createRace();
-	moveCars();
+	//moveCars();
 }
 
 //Resetear la carrera

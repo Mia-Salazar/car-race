@@ -181,12 +181,16 @@ body {
 	display: flex;
     flex-direction: column;
     justify-content: center;
-	padding: 0 20px;
+    margin: 0;
+	padding: 0;
 	list-style-type: none;
 }
 
 .race-container {
 	height: calc(100% - 68px);
+	display: grid;
+    grid-template-columns: 1fr 35px;
+	padding: 0 20px;
 }
 
 .race-list li {
@@ -200,6 +204,12 @@ body {
 
 .race-list img {
     margin-left: 0;
+}
+
+.finish-line {
+	margin-bottom: 20px;
+	background-size: contain;
+	background-image: url("./img/finish-line.jpg");
 }
 
 /*Responsive*/
