@@ -178,12 +178,15 @@ body {
 /*Líneas de carrera*/
 .race-list {
 	height: 100%;
+	display: flex;
+    flex-direction: column;
+    justify-content: center;
 	padding: 0 20px;
 	list-style-type: none;
 }
 
 .race-container {
-	height: 100%;
+	height: calc(100% - 68px);
 }
 
 .race-list li {
@@ -193,6 +196,10 @@ body {
 	background-position: center;
 	background-repeat: repeat-x;
 	background-size: contain;
+}
+
+.race-list img {
+    margin-left: 0;
 }
 
 /*Responsive*/
