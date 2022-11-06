@@ -53,27 +53,28 @@
 						        </div>
 						        <button class="button" id="startButton" type="submit">Iniciar</button>
 						        <button class="button reset" id="resetButton" type="reset" hidden>Reset</button>
+						        <button class="button toggle" type="button" id="toggleRaceButton" hidden>Carrera</button>
 		  					</form>
 	  					</section>
 	  					<!--Carrera-->
-	  					<section id="race" class="race-container" hidden>
-	  						<ul id="raceLines" class="race-list">
-	  						</ul>
-	  						<div class="finish-line">
-	  							
+	  					<section id="race" class="race-section" hidden>
+	  						<div class="race-container">
+	  							<ul id="raceLines" class="race-list">
+	  							</ul>
+	  							<div class="finish-line"></div>
 	  						</div>
 	  					</section>
 	  					<!--Tablero-->
-	  					<section id="scores" hidden>
-	  						<table id="scoresTable">
+	  					<section id="scores" class="scores-section" hidden>
+	  						<table>
 	  							<thead>
 	  								<tr>
-	  									<th>Jugador</th>
 	  									<th>Posición</th>
+	  									<th>Jugador</th>
+	  									<th>Puntuación</th>
 	  								</tr>
 	  							</thead>
-	  							<tbody>
-	  								
+	  							<tbody id="scoresBody">
 	  							</tbody>
 	  						</table>
 	  					</section>
