@@ -38,7 +38,7 @@ body {
 	border-left: 6px solid #e3e3e3;
 }
 
-/*Screen*/
+/*Pantalla de la máquina*/
 .outside-screen {
 	height: 100%;
 	display: flex;
@@ -126,17 +126,21 @@ body {
 }
 
 .form {
-	max-width: 355px;
-	margin: 20px auto 0 auto;
+	display: grid;
+    align-items: flex-end;
+    grid-template-columns: 1fr 1fr 100px;
+    grid-gap: 16px;
+	margin: 20px 20px 0 20px;
 }
 .input-container {
 	display: flex;
 	flex-direction: column;
-	margin-bottom: 24px;
+	margin-bottom: 0;
 }
 
 .input-label {
-	margin-bottom: 16px;
+	margin-bottom: 10px;
+	font-size:  14px;
 }
 
 .select {
@@ -155,7 +159,7 @@ body {
 }
 
 .button {
-	padding: 10px 0;
+	padding: 8px 0;
 	color: #a69a55;
 	border:  2px solid #364007;
 	font-family: 'Press Start 2P', cursive;
@@ -169,16 +173,9 @@ body {
 	border:  2px solid #364007;
 }
 
-.reset, .toggle {
+.toggle {
 	position: absolute;
     top: -7px;	
-}
-
-.reset {
-    right: 20px;
-}
-
-.toggle {
     left: 20px;
 }
 
@@ -203,8 +200,13 @@ body {
 	padding: 0 20px;
 }
 
+.scores-section{
+	margin-top: 20px;
+}
+
 .race-section {
-	height: calc(100% - 68px);
+	height: calc(100% - 145px);
+	padding: 20px 0;
 }
 
 .race-list li {
@@ -226,7 +228,7 @@ body {
 	background-image: url("./img/finish-line.jpg");
 }
 
-/*Tabla*/
+/*Tabla de puntuaciones*/
 thead {
 	background-color: #364007;
     color: #a69a55;
