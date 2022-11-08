@@ -13,11 +13,13 @@
 	    <title>Car race, un juego de coches</title>
 	 </head>
 	 <body>
+	 	<!--Inicio de la máquina-->
 	  	<main class="machine">
 	  		<div class="header">
 	  			<div class="header-left"></div>
 	  			<div class="header-right"></div>
 	  		</div>
+	  		<!--Pantalla de la máquina-->
 	  		<div class="outside-screen">
 	  			<div class="sound-container">
 	  				<p class="sound">DOT MATRIX WITH STEREO SOUND</p>
@@ -27,11 +29,12 @@
 	  					<span class="battery-light"></span>
 	  					<p class="battery">BATTERY</p>
 	  				</div>
+	  				<!--Pantalla interior donde se mostrarán todos los elementos de la carrera-->
 	  				<div class="inside-screen">
 	  					<!--Formulario-->
 	  					<section id="form-container" class="form-container">
+	  						<h1 class="title">Car race</h1>
 		  					<form id="form" class="form">
-		  						<h1 class="title">Car race</h1>
 		  						<div class="input-container">
 		  							<label class="input-label" for="numberOfPlayers">Número de jugadores</label>
 			  						<select name="numberOfPlayers" id="numberOfPlayers" class="select" required>
@@ -48,8 +51,8 @@
 						            </select>
 		  						</div>
 		  						<div class="input-container">
-						            <label class="input-label" for="winningScore">Puntuación de victoria</label>
-						            <input class="input" id="winningScore" name="winningScore" min="1" type="number" required />
+						            <label class="input-label" for="winningScore">Línea de meta</label>
+						            <input class="input" id="winningScore" value="100" name="winningScore" min="1" type="number" required />
 						        </div>
 						        <button class="button" id="startButton" type="submit">Iniciar</button>
 						        <button class="button reset" id="resetButton" type="reset" hidden>Reset</button>
