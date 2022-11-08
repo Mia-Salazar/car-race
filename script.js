@@ -11,6 +11,7 @@ const toggleRaceButton = $("#toggleRaceButton");
 let toggleToRace = true;
 let isReseted = false;
 let players = [];
+let winner = false;
 
 //Añadir event listeners
 $("#form").on("submit", function (e) {
@@ -50,10 +51,15 @@ const createRace = () => {
 	moveCars();
 }
 
+//Hacemos que los coches vuelvan al inicio
+const resetPositions = () => {
+	players.forEach((player, index) => {
+		$(`#${++index}`).animate({marginLeft: 0});
+	});
+}
+
 //Movimiento de los coches
-const moveCars = () => {
-	//Creamos una variable en la que guardar si hay un ganador
-	let winner = false;
+const moveCars = () => {	
 	//Si acabamos de resetear a carrera, no seguirán moviéndose los coches
 	if (!isReseted) {
 		//Por cada jugador que haya, le vamos sumamos a su posición un valor entre 1 y 10
@@ -81,10 +87,7 @@ const moveCars = () => {
 		}
 	} else {
 		//Si se ha reseteado la carrera, ponemos todos los coches al principio
-		isReseted = false;
-		players.forEach((player, index) => {
-			$(`#${++index}`).animate({marginLeft: 0});
-		});
+		resetPositions();
 	}
 }
 
@@ -126,16 +129,22 @@ const changeToggleToRace = () => {
 	toggleToRace = !toggleToRace;
 }
 
-//Inicio de la carrera
+//Inicio de la carrera y reiniciamos valores
 function raceStart() {
+	winner = false;
+	isReseted = false;
+	toggleRaceButton[0].innerHTML = "Carrera";
 	resetButton.show();
 	raceSection.show();
 	startButton.hide();
 	createRace();
 }
 
-//Resetear la carrera
+//Reiniciamos la carrera
 function raceReset() {
+	if (winner) {
+		resetPositions();
+	}
 	isReseted  = true;
 	toggleToRace = true;
 	scoresTable.hide();
