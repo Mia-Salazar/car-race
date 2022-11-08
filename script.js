@@ -68,7 +68,7 @@ const moveCars = () => {
 			const movement = Math.floor(Math.random() * 10) + 1;
 			const totalPosition = players[index].score + movement;
 			players[index].score = totalPosition; 
-			$(`#${++index}`).animate({marginLeft: totalPosition});
+			$(`#${++index}`).animate({marginLeft: totalPosition}, 100);
 			//Si el margen total es mayor que el valor de meta, tendremos ganador
 			if (totalPosition >= scoreFinal.value) {
 				winner = true;
@@ -76,7 +76,7 @@ const moveCars = () => {
 		});
 		//Si no tenemos ganador, volvemos a llamar a la función
 		if (!winner) {
-			setTimeout(moveCars, 1000);
+			setTimeout(moveCars, 100);
 		} else {
 			scoresTable.show();
 			raceSection.hide();
