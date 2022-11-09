@@ -1,41 +1,23 @@
 /*Estilos generales*/
 html {
-	font-family: sans-serif;
+	font-family: 'Press Start 2P', cursive;
+	color: #364007;
 }
 
 body {
 	margin: 0;
-	background-color: #B4EFB4;
+	background-color: #a69a55;
+}
+
+table {
+	font-size:  14px;
 }
 
 .machine {
-	height: calc(100vh - 10px);
 	display: flex;
     flex-direction: column;
-	margin: 10px 24px 0 24px;
+	margin: 0;
 	border-radius: 10px 10px 0 0;
-	background-color: #eee;
-}
-
-/*Parte superior*/
-.header {
-	height: 35px;
-	display: flex;
-    justify-content: space-between;
-	border-bottom: 6px solid #e3e3e3;
-}
-
-.header-left, .header-right {
-	height: 100%;
-	width: 10%;
-}
-
-.header-left {
-	border-right: 6px solid #e3e3e3;
-}
-
-.header-right {
-	border-left: 6px solid #e3e3e3;
 }
 
 /*Pantalla de la máquina*/
@@ -43,9 +25,7 @@ body {
 	height: 100%;
 	display: flex;
     flex-direction: column;
-	margin: 35px 50px 20px 50px;
     background-color: #6b6b6b;
-    border-radius: 10px 10px 50px 10px;
 }
 
 .inside-screen {
@@ -54,68 +34,22 @@ body {
 	background: #a69a55;
 }
 
-.sound {
-	padding: 15px 103px 15px 10px;
-	margin: 0;
-	background-color: #6b6b6b;
-	border-radius: 10px 10px 0 0;
-	color: white;
-	font-weight: 600;
-	text-align: right;
-}
-
 .sound-container {
-	position: relative;
-}
-
-.sound-container:after, .sound-container:before {
-	content:  "";
-	height: 11px;
-	width: 75px;
-	position: absolute;
-	right: 15px;
-    bottom: 16px;
-	border-top: 4px solid #8e1994;
-	border-bottom: 4px solid #212e8d;
-}
-
-.sound-container:before {
-	width: calc(100% - 410px);
-	left: 15px;
+	display:  none;
 }
 
 .inside-screen-container {
 	height: 100%;
-    display: grid;
-    grid-template-columns: 100px 1fr 100px;
-    grid-template-rows: 1fr 40px;
-    align-items: center;
-    font-family: 'Press Start 2P', cursive;
-    color: #364007;
 }
 
 .battery-container {
-	display:  flex;
-	flex-direction: column;
-	align-items: center;
-}
-
-.battery {
-	color: white;
-    text-align: center;
-    font-size: 12px;
-    font-weight: 600;
-}
-
-.battery-light {
-	width: 10px;
-	height: 10px;
-	border-radius: 50%;
-	background-color: #c47b7b;
+	display:  none;
 }
 
 .title {
+	margin-top: 0;
 	margin-bottom: 24px;
+	padding-top: 20px;
 	text-align: center;
     font-size: 24px;
 }
@@ -127,10 +61,8 @@ body {
 
 .form {
 	display: grid;
-    align-items: flex-end;
-    grid-template-columns: 1fr 1fr 100px;
     grid-gap: 16px;
-	margin: 20px 20px 0 20px;
+	padding: 20px 20px 0 20px;
 }
 .input-container {
 	display: flex;
@@ -173,12 +105,6 @@ body {
 	border:  2px solid #364007;
 }
 
-.toggle {
-	position: absolute;
-    top: -7px;	
-    left: 20px;
-}
-
 /*Líneas de carrera*/
 .race-list {
 	height: 100%;
@@ -205,7 +131,6 @@ body {
 }
 
 .race-section {
-	height: calc(100% - 145px);
 	padding: 20px 0;
 }
 
@@ -243,9 +168,133 @@ td {
 }
 
 /*Responsive*/
+@media (min-width: 1024px) {
+	body {
+		background-color: #B4EFB4;
+	}
+	/*Pantalla*/
+	.machine {
+		height: calc(100vh - 10px);
+		margin: 10px auto 0 auto;
+		background-color: #eee;
+	}
+	.outside-screen {
+		margin: 35px 50px 20px 50px;
+	    border-radius: 10px 10px 50px 10px;
+	}
+	.inside-screen-container {
+	    display: grid;
+	    grid-template-rows: 1fr 40px;
+	    grid-template-columns: 20px 1fr 20px;
+	    align-items: center;
+	    font-family: 'Press Start 2P', cursive;
+	    color: #364007;
+	}
+
+	/*Parte superior*/
+	.header {
+		height: 35px;
+		display: flex;
+	    justify-content: space-between;
+		border-bottom: 6px solid #e3e3e3;
+	}
+
+	.header-left, .header-right {
+		height: 100%;
+		width: 10%;
+	}
+
+	.header-left {
+		border-right: 6px solid #e3e3e3;
+	}
+
+	.header-right {
+		border-left: 6px solid #e3e3e3;
+	}
+
+	/*Batería*/
+	.battery-container {
+		display:  flex;
+		flex-direction: column;
+		align-items: center;
+	}
+
+	.battery {
+		color: white;
+	    text-align: center;
+	    font-size: 12px;
+	    font-weight: 600;
+	}
+
+	.battery-light {
+		width: 10px;
+		height: 10px;
+		border-radius: 50%;
+		background-color: #c47b7b;
+	}
+
+	/*Pantalla interna*/
+	.inside-screen-container {
+	    grid-template-columns: 100px 1fr 100px;
+	}
+	/*Formulario*/
+	.form {
+	    align-items: flex-end;
+	    grid-template-columns: 1fr 1fr 100px;
+	}
+	/*Sonido*/
+	.sound {
+		padding: 15px 11% 15px 10px;
+		margin: 0;
+		background-color: #6b6b6b;
+		border-radius: 10px 10px 0 0;
+		color: white;
+		font-weight: 600;
+		text-align: right;
+	}
+
+	.sound-container {
+		display:  block;
+		position: relative;
+	}
+
+	.sound-container:after, .sound-container:before {
+		content:  "";
+		height: 11px;
+		width: 75px;
+		position: absolute;
+		right: 15px;
+	    bottom: 16px;
+		border-top: 4px solid #8e1994;
+		border-bottom: 4px solid #212e8d;
+	}
+
+	.sound-container:before {
+		width: calc(100% - 62%);
+		left: 15px;
+	}
+	/*Carrera*/
+	.race-section {
+		height: calc(100% - 145px);
+	}
+	/*Tabla de puntuaciones*/
+	table {
+		font-size:  14px;
+	}
+	.toggle {
+		position: absolute;
+	    top: -15px;	
+	    left: 20px;
+	}
+}
+
 @media (min-width: 1440px) {
 	.machine {
 		max-width: 1200px;
-		margin: 16px auto 0 auto;
+		margin: 10px auto 0 auto;
+	}
+
+	.sound-container:before {
+		width: calc(100% - 55%);
 	}
 }
