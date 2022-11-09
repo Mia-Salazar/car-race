@@ -293,4 +293,8 @@ td {
 		max-width: 1200px;
 		margin: 10px auto 0 auto;
 	}
+
+	.sound-container:before {
+		width: calc(100% - 55%);
+	}
 }
