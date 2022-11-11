@@ -10,12 +10,12 @@ body {
 }
 
 table {
-	font-size:  14px;
+	font-size: 14px;
 }
 
 .machine {
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 	margin: 0;
 	border-radius: 10px 10px 0 0;
 }
@@ -24,8 +24,8 @@ table {
 .outside-screen {
 	height: 100%;
 	display: flex;
-    flex-direction: column;
-    background-color: #6b6b6b;
+	flex-direction: column;
+	background-color: #6b6b6b;
 }
 
 .inside-screen {
@@ -35,7 +35,7 @@ table {
 }
 
 .sound-container {
-	display:  none;
+	display: none;
 }
 
 .inside-screen-container {
@@ -43,7 +43,7 @@ table {
 }
 
 .battery-container {
-	display:  none;
+	display: none;
 }
 
 .title {
@@ -51,7 +51,7 @@ table {
 	margin-bottom: 24px;
 	padding-top: 20px;
 	text-align: center;
-    font-size: 24px;
+	font-size: 24px;
 }
 
 /*Formulario*/
@@ -62,7 +62,7 @@ table {
 .form {
 	position: relative;
 	display: grid;
-    grid-gap: 16px;
+	grid-gap: 16px;
 	padding: 20px 20px 0 20px;
 }
 .input-container {
@@ -73,7 +73,7 @@ table {
 
 .input-label {
 	margin-bottom: 10px;
-	font-size:  14px;
+	font-size: 14px;
 }
 
 .select {
@@ -91,10 +91,15 @@ table {
 	font-family: 'Press Start 2P', cursive;
 }
 
+.input:disabled, .select:disabled {
+	color: #707849;
+	border: 2px solid #707849;
+}
+
 .button {
 	padding: 8px 0;
 	color: #a69a55;
-	border:  2px solid #364007;
+	border: 2px solid #364007;
 	font-family: 'Press Start 2P', cursive;
 	background-color: #364007;
 	cursor: pointer;
@@ -103,16 +108,16 @@ table {
 .button:hover {
 	background-color: transparent;
 	color: #364007;
-	border:  2px solid #364007;
+	border: 2px solid #364007;
 }
 
 /*Líneas de carrera*/
 .race-list {
 	height: 100%;
 	display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin: 0;
+	flex-direction: column;
+	justify-content: center;
+	margin: 0;
 	padding: 0;
 	border-right: 40px solid black;
 	list-style-type: none;
@@ -132,18 +137,25 @@ table {
 }
 
 .race-list li {
-    height: 7.5%;
-    margin-bottom: 16px;
-    background-color:#6b6b6b;
+	height: 7.5%;
+	display: flex;
+	align-items: center;
+	margin-bottom: 16px;
+	background-color:#6b6b6b;
 }
 
 .race-list li:last-of-type {
 	margin-bottom: 0;
 }
 
+.race-list figure {
+	width: 60px;
+	margin: 0;
+}
+
 .race-list img {
-	height:  35px;
-    margin-left: 0;
+	max-width: 100%;
+	margin-left: 0;
 }
 
 .finish-line {
@@ -153,7 +165,7 @@ table {
 /*Tabla de puntuaciones*/
 thead {
 	background-color: #364007;
-    color: #a69a55;
+	color: #a69a55;
 }
 
 th {
@@ -177,22 +189,22 @@ td {
 	}
 	.outside-screen {
 		margin: 35px 50px 20px 50px;
-	    border-radius: 10px 10px 50px 10px;
+		border-radius: 10px 10px 50px 10px;
 	}
 	.inside-screen-container {
-	    display: grid;
-	    grid-template-rows: 1fr 40px;
-	    grid-template-columns: 20px 1fr 20px;
-	    align-items: center;
-	    font-family: 'Press Start 2P', cursive;
-	    color: #364007;
+		display: grid;
+		grid-template-rows: 1fr 40px;
+		grid-template-columns: 20px 1fr 20px;
+		align-items: center;
+		font-family: 'Press Start 2P', cursive;
+		color: #364007;
 	}
 
 	/*Parte superior*/
 	.header {
 		height: 35px;
 		display: flex;
-	    justify-content: space-between;
+		justify-content: space-between;
 		border-bottom: 6px solid #e3e3e3;
 	}
 
@@ -218,9 +230,9 @@ td {
 
 	.battery {
 		color: white;
-	    text-align: center;
-	    font-size: 12px;
-	    font-weight: 600;
+		text-align: center;
+		font-size: 12px;
+		font-weight: 600;
 	}
 
 	.battery-light {
@@ -232,12 +244,12 @@ td {
 
 	/*Pantalla interna*/
 	.inside-screen-container {
-	    grid-template-columns: 100px 1fr 100px;
+		grid-template-columns: 100px 1fr 100px;
 	}
 	/*Formulario*/
 	.form {
-	    align-items: flex-end;
-	    grid-template-columns: 1fr 1fr 100px;
+		align-items: flex-end;
+		grid-template-columns: 1fr 1fr 100px;
 	}
 	/*Sonido*/
 	.sound {
@@ -261,7 +273,7 @@ td {
 		width: 75px;
 		position: absolute;
 		right: 15px;
-	    bottom: 16px;
+		bottom: 16px;
 		border-top: 4px solid #8e1994;
 		border-bottom: 4px solid #212e8d;
 	}
@@ -275,13 +287,13 @@ td {
 		height: calc(100% - 180px);
 	}
 	.race-section:after {
-		content:  "línea de metae";
+		content:  "línea de meta";
 		position: absolute;
-	    position: absolute;
-	    transform: rotate(90deg);
-	    right: -71px;
-	    color: white;
-	    top: 50%;
+		position: absolute;
+		transform: rotate(90deg);
+		right: -71px;
+		color: white;
+		top: 50%;
 	}
 
 	/*Tabla de puntuaciones*/
@@ -290,8 +302,8 @@ td {
 	}
 	.toggle {
 		position: absolute;
-	    top: -42px;	
-	    left: 20px;
+		top: -42px;	
+		left: 20px;
 	}
 }
 
