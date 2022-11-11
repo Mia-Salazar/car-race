@@ -114,13 +114,8 @@ table {
     justify-content: center;
     margin: 0;
 	padding: 0;
+	border-right: 40px solid black;
 	list-style-type: none;
-}
-
-.race-container {
-	height: 100%;
-	display: grid;
-    grid-template-columns: 1fr 35px;
 }
 
 .scores-section, .race-container {
@@ -132,26 +127,27 @@ table {
 }
 
 .race-section {
-	padding: 20px 0;
+	position: relative;
+	padding: 15px 20px;
 }
 
 .race-list li {
-    height: 7%;
-    margin-bottom: 14px;
-	background-image: url("./img/road.svg");
-	background-position: center;
-	background-repeat: repeat-x;
-	background-size: contain;
+    height: 7.5%;
+    margin-bottom: 16px;
+    background-color:#6b6b6b;
+}
+
+.race-list li:last-of-type {
+	margin-bottom: 0;
 }
 
 .race-list img {
+	height:  35px;
     margin-left: 0;
 }
 
 .finish-line {
 	margin-bottom: 20px;
-	background-size: contain;
-	background-image: url("./img/finish-line.jpg");
 }
 
 /*Tabla de puntuaciones*/
@@ -276,8 +272,18 @@ td {
 	}
 	/*Carrera*/
 	.race-section {
-		height: calc(100% - 145px);
+		height: calc(100% - 180px);
 	}
+	.race-section:after {
+		content:  "línea de metae";
+		position: absolute;
+	    position: absolute;
+	    transform: rotate(90deg);
+	    right: -71px;
+	    color: white;
+	    top: 50%;
+	}
+
 	/*Tabla de puntuaciones*/
 	table {
 		font-size:  14px;

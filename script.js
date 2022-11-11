@@ -49,7 +49,7 @@ $(document).ready(function () {
 			raceLines.appendChild(li);
 		};
 		//Una vez creados todas las líneas, iniciamos la carrera
-		moveCars();
+		//moveCars();
 	}
 
 	//Hacemos que los coches vuelvan al inicio
