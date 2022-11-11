@@ -84,9 +84,9 @@ $(document).ready(function () {
 					const movement = Math.floor(Math.random() * 10) + 1;
 					const totalPosition = player.score + movement;
 					player.score = totalPosition; 
-					$(`#${++index}`).animate({marginLeft: valueToPercent(totalPosition)}, 100);
+					$(`#${++index}`).animate({marginLeft: valueToPercent(totalPosition)}, 150);
 					//Si el margen total es mayor que el valor de meta, habrá llegado al final y le daremos una posición
-					if (totalPosition >= scoreFinal.value) {
+					if (totalPosition > scoreFinal.value) {
 						++numberOfWinners;
 						player.position = numberOfWinners;	
 					}
@@ -94,7 +94,7 @@ $(document).ready(function () {
 			});
 			//Si no han llegado todos a la meta, volveremos a llamar a la función que mueve los coches
 			if (numberOfWinners < players.length) {
-				setTimeout(moveCars, 100);
+				setTimeout(moveCars, 150);
 			} else {
 				//Si ha llegado a la meta, enseñamos la tabla de puntuaciones y la creamos
 				scoresTable.show();
