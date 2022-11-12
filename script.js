@@ -159,7 +159,7 @@ $(document).ready(function () {
 
 	//Reiniciamos la carrera y sus valores
 	function raceReset() {
-		if (numberOfWinners !== 0) {
+		if (numberOfWinners !== scoreFinal.value) {
 			resetPositions();
 		}
 		inputs.prop('disabled', false);
