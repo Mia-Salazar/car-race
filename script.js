@@ -63,7 +63,7 @@ $(document).ready(function () {
 	}
 
 	//Cambiamos al valor a uno porcentual
-	const valueToPercent = (value) => {
+	const valueAccordingToFinishLine = (value) => {
 		const screenSizeWithPaddingWithGoaldAndCar = $("#screen")[0].offsetWidth - 20 - 20 - 40 - 60; 
 		const result = screenSizeWithPaddingWithGoaldAndCar/ scoreFinal.value * value ;
 		if(result >= screenSizeWithPaddingWithGoaldAndCar) {
@@ -84,7 +84,7 @@ $(document).ready(function () {
 					const movement = Math.floor(Math.random() * 10) + 1;
 					const totalPosition = player.score + movement;
 					player.score = totalPosition; 
-					$(`#${++index}`).animate({marginLeft: valueToPercent(totalPosition)}, 150);
+					$(`#${++index}`).animate({marginLeft: valueAccordingToFinishLine(totalPosition)}, 150);
 					//Si el margen total es mayor que el valor de meta, habrá llegado al final y le daremos una posición
 					if (totalPosition > scoreFinal.value) {
 						++numberOfWinners;

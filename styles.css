@@ -97,7 +97,7 @@ table {
 }
 
 .button {
-	padding: 8px 0;
+	padding: 8px;
 	color: #a69a55;
 	border: 2px solid #364007;
 	font-family: 'Press Start 2P', cursive;
@@ -151,6 +151,7 @@ table {
 .race-list figure {
 	width: 60px;
 	margin: 0;
+	margin-left: 0;
 }
 
 .race-list img {
@@ -249,7 +250,7 @@ td {
 	/*Formulario*/
 	.form {
 		align-items: flex-end;
-		grid-template-columns: 1fr 1fr 100px;
+		grid-template-columns: 1fr 1fr 140px;
 	}
 	/*Sonido*/
 	.sound {
