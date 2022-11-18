@@ -151,6 +151,7 @@ table {
 .race-list figure {
 	width: 60px;
 	margin: 0;
+	margin-left: 0;
 }
 
 .race-list img {
