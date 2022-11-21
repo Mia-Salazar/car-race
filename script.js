@@ -10,10 +10,10 @@ $(document).ready(function () {
 	const scoresBody = $("#scoresBody")[0];
 	const toggleRaceButton = $("#toggleRaceButton");
 	const inputs = $(".select, .input");
-	let numberOfWinners = 0;
+	let raceDuration = 0;
 	let toggleToRace = true;
-	let isReseted = false;
 	let players = [];
+	let waitFinalRace;
 
 	//Manejamos los eventos
 	$("#form").on("submit", function (e) {
@@ -26,8 +26,19 @@ $(document).ready(function () {
 	});
 	toggleRaceButton.click(function () {
 		changeToggleToRace();
-	})
+	});
 
+	//Mostrar tabla cuando termine la carrera
+	const showTable = () => {
+		if (raceDuration !== 0) {
+			scoresTable.show();
+			raceSection.css("display", "none");
+			resetButton.show();
+			startButton.hide();
+			toggleRaceButton.show();
+			createScoreTable();
+		}
+	}
 
 	//Crear líneas de competición
 	const createRace = () => {
@@ -35,13 +46,19 @@ $(document).ready(function () {
 		players= [];
 		scoresBody.innerHTML = "";
 		raceLines.innerHTML = "";
+		const inputValue = Number(scoreFinal.value);
+		const carsWidth = 60;
+		const raceLine = inputValue + carsWidth;
+		$(".race-section:after").css("left", inputValue);
 		//Por cada uno de los jugadores que se hayan escogido, creamos una línea de carrera
 		for (let i = 1; i <= Number(numberOfPlayers.value); i++){
-			let player = {img: `./img/car${i}.png`, number: i, score: 0, position: 0}
+			
+			let player = {img: `./img/car${i}.png`, number: i, score: 0}
 			let li = document.createElement("li");
 			let img = document.createElement("img");
 			let figure = document.createElement("figure");
 
+			li.style.width = `${raceLine}px`;
 			figure.setAttribute("id",i);
 			img.alt=`coche número ${i}`;
 			img.src=player.img;
@@ -58,62 +75,34 @@ $(document).ready(function () {
 	//Hacemos que los coches vuelvan al inicio
 	const resetPositions = () => {
 		players.forEach((player, index) => {
-			$(`#${++index}`).animate({marginLeft: 0});
+			const number = ++index;
+			$(`#${number}`).stop();
+			$(`#${number}`).animate({marginLeft: 0});
 		});
 	}
 
-	//Cambiamos al valor a uno porcentual
-	const valueAccordingToFinishLine = (value) => {
-		const screenSizeWithPaddingWithGoaldAndCar = $("#screen")[0].offsetWidth - 20 - 20 - 40 - 60; 
-		const result = screenSizeWithPaddingWithGoaldAndCar/ scoreFinal.value * value ;
-		if(result >= screenSizeWithPaddingWithGoaldAndCar) {
-			return screenSizeWithPaddingWithGoaldAndCar; 
-		}
-		return result;
-	}
-
 	//Movimiento de los coches
-	const moveCars = () => {	
-		//Si acabamos de resetear la carrera, no seguirán moviéndose los coches
-		if (!isReseted) {
-			//Por cada jugador que haya, le sumamos a su posición un valor entre 1 y 10
-			//Este valor es que usaremos para que sea su margin-left y así el coche se vaya desplazando
-			players.forEach((player, index) => {
-				//Si el jugador ya ha llegado a la meta, no seguirá moviéndose
-				if (player.position === 0) {
-					const movement = Math.floor(Math.random() * 10) + 1;
-					const totalPosition = player.score + movement;
-					player.score = totalPosition; 
-					$(`#${++index}`).animate({marginLeft: valueAccordingToFinishLine(totalPosition)}, 150);
-					//Si el margen total es mayor que el valor de meta, habrá llegado al final y le daremos una posición
-					if (totalPosition > scoreFinal.value) {
-						++numberOfWinners;
-						player.position = numberOfWinners;	
-					}
-				}
-			});
-			//Si no han llegado todos a la meta, volveremos a llamar a la función que mueve los coches
-			if (numberOfWinners < players.length) {
-				setTimeout(moveCars, 150);
-			} else {
-				//Si ha llegado a la meta, enseñamos la tabla de puntuaciones y la creamos
-				scoresTable.show();
-				raceSection.hide();
-				resetButton.show();
-				startButton.hide();
-				toggleRaceButton.show();
-				createScoreTable();
+	const moveCars = () => {
+		//Por cada jugador que haya, calculamos la velocidad del margin-left con un valor entre 1 y 10
+		players.forEach((player, index) => {
+			const movement = Math.random() * 10 + 1;
+			const realMovement = movement * 1000;
+			//Guardamos cuál es el tiempo más largo para llegar a meta
+			if (raceDuration < realMovement) {
+				raceDuration = realMovement;
 			}
-		} else {
-			//Si se ha reseteado la carrera, ponemos todos los coches al principio
-			resetPositions();
-		}
+			//Guardamos el valor aleatorio ya que marcará quién llegó antes
+			player.score = movement; 
+			$(`#${++index}`).animate({marginLeft: scoreFinal.value}, realMovement, "linear");
+		});
+		//Usamos un setTimeout para que no salga la tabla hasta que hayan terminado todos usando raceDuration
+		waitFinalRace = setTimeout(showTable, raceDuration + 500);
 	}
 
 	//Crear tablas con puntuaciones
 	const createScoreTable = () => {
 		//Ordenamos los jugadores según su puntuación
-		const sortedPlayer = players.sort((a, b) => (a.position < b.position) ? -1 : 1);
+		const sortedPlayer = players.sort((a, b) => (a.score < b.score) ? -1 : 1);
 		//Por cada jugador creamos una fila nueva en la tabla con sus datos
 		sortedPlayer.forEach((sortedPlayer, index) => {
 			let tr = document.createElement("tr");
@@ -135,23 +124,27 @@ $(document).ready(function () {
 		if(toggleToRace) {
 			toggleRaceButton[0].innerHTML = "Puntuación";
 			scoresTable.hide();
-			raceSection.show();
+			raceSection.css("display", "flex");
 		} else {
 		//Si están viendo la tabla de resultados, le ocultamos la carrera y le mostramos la tabla de puntuaciones
 			toggleRaceButton[0].innerHTML = "Carrera";
 			scoresTable.show();
-			raceSection.hide();
+			raceSection.css("display", "none");
 		}
 		toggleToRace = !toggleToRace;
 	}
 
 	//Iniciamos la carrera y reiniciamos valores
 	function raceStart() {
-		isReseted = false;
-		numberOfWinners = 0;
+		//Comprobamos si han introducido un valor mayor que el ancho de la pantalla
+		const screenSizeWithPaddingWithGoaldAndCar = $("#screen")[0].offsetWidth - 20 - 20 - 60 - 40;
+		if (scoreFinal.value > screenSizeWithPaddingWithGoaldAndCar) {
+			alert(`No puede escoger una línea de meta mayor que el ancho de la pantalla. El máximo de tu pantalla es ${screenSizeWithPaddingWithGoaldAndCar}`);
+			return;
+		} 
 		toggleRaceButton[0].innerHTML = "Carrera";
 		resetButton.show();
-		raceSection.show();
+		raceSection.css("display", "flex");
 		startButton.hide();
 		inputs.prop('disabled', true);
 		createRace();
@@ -159,14 +152,14 @@ $(document).ready(function () {
 
 	//Reiniciamos la carrera y sus valores
 	function raceReset() {
-		if (numberOfWinners !== scoreFinal.value) {
-			resetPositions();
-		}
+		//Limpiamos el setTimeout para que no siga esperando para poner la tabla
+		clearTimeout(waitFinalRace);
+		resetPositions();
 		inputs.prop('disabled', false);
-		isReseted = true;
 		toggleToRace = true;
+		raceDuration = 0;
 		scoresTable.hide();
-		raceSection.show();
+		raceSection.css("display", "flex");
 		resetButton.hide();
 		startButton.show();
 		toggleRaceButton.hide();
