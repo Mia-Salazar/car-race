@@ -9,6 +9,10 @@ A topic searcher on Reddit made with React to practice
 * HTML5
 * CSS3
 
+## GitHub Pages
+
+[GitHub Page](https://mia-salazar.github.io/car-race/)
+
 ## Authors
 
 * **Mia Salazar** - *Initial work* - [Mia-Salazar](https://github.com/Mia-Salazar)
