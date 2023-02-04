@@ -9,9 +9,6 @@ A topic searcher on Reddit made with React to practice
 * HTML5
 * CSS3
 
-## Github Pages
- [https://mia-salazar.github.io/pollution](https://mia-salazar.github.io/pollution)
-
 ## Authors
 
 * **Mia Salazar** - *Initial work* - [Mia-Salazar](https://github.com/Mia-Salazar)
